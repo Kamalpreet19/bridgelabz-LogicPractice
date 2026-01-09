@@ -3,49 +3,65 @@ public class SnakeLadder {
    
     public static void main(String args[]){
 
-        int player1, player2;
+
+        
+        //int player1, player2;
         int pos=0;
     
         Random r=new Random();
+
+
+
+        int countDice = 0;
         while(pos!=100){
         int dice = r.nextInt(6) + 1;
+        int opt = r.nextInt(3);
+        countDice ++;
         
-         
-        pos=pos+dice;
-        System.out.println(pos);
-
-
-        Random ran = new Random();
-        int opt = ran.nextInt(3);
+    
+        
         switch(opt){
-            case 1 :
-            if(opt==0){
+            case 0 :
+          
                 System.out.println("No play");
                 break;
-            }
-            case 2:
-                if(opt==1){
+            
+            case 1:
+               
                     System.out.println("Snake");
                     pos = pos -dice;
+                    if (pos<0){
+                    pos=0;
+                    }
                     break;
-                }
-
-            case 3:
-                if(opt==2){
+                
+            case 2:
+                
                     System.out.println("Ladder");
                     if(pos + dice <= 100){
                     pos = pos + dice;
+                    }else{
+                        System.out.println("Player remains on the same position");
                     }
                 break;
-                }
+                
 
-            if (pos<0){
-                pos=0;
-            }
+                }
+            
             System.out.println("Player current position:"+ pos);
         }
        
 
+        System.out.println("Dice rolled " + countDice + " times");
+
     }
     }
-}
+
+
+
+
+
+       
+
+                            
+           
