@@ -49,7 +49,7 @@ class Contact {
     public void setEmail(String email) {
         this.email = email;
     }
-}
+
 }
 public class AddressBook {
 
@@ -130,4 +130,25 @@ public void editContactByName() {
         System.out.println("Contact Not Found!");
     }
 }
+    public void deleteContact() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter First Name to Delete: ");
+        String name = sc.nextLine();
+
+        boolean found = false;
+
+        for (Contact c : contacts) {
+            if (c.getFirstName().equalsIgnoreCase(name)) {
+                contacts.remove(c);
+                System.out.println("Contact Deleted Successfully!");
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Contact Not Found!");
+        }
+    }
 }
