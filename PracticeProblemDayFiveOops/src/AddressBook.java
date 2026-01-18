@@ -151,4 +151,38 @@ public void editContactByName() {
             System.out.println("Contact Not Found!");
         }
     }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        AddressBook obj = new AddressBook();
+        int choice;
+
+        do {
+            System.out.println("\n1. Add Contact");
+            System.out.println("2. Edit Contact");
+            System.out.println("3. Delete Contact");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+                case 1:
+                    obj.addContact();
+                    break;
+                case 2:
+                    obj.editContactByName();
+                    break;
+                case 3:
+                    obj.deleteContact();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        } while (choice != 4);
+    }
 }
